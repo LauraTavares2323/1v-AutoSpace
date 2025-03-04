@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoSpace</title>
-    <script src="script.js" defer></script>
-</head>
-<body>
 
-        <section >
-            <h2>Cadastrar Usuário</h2>
-            <form id="cadastro">
-              <label for="username">Usuário</label>
-              <input type="text" id="username" required>
-          
-              <label for="password">Senha</label>
-              <input type="password" id="password" required> 
-              
-              <button type="submit">Cadastrar</button>
-            </form>
-        </section>
-          
-  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoSpace</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <img src="assents/imagem fundo.png" alt="Background" class="background">
+      <img src="assents/logo_laura-removebg-preview.png" alt="Logo" class="logo">
+    </div>
+
+    <div class="right">
+      <div class="form-container">
+        <h2>Cadastro</h2>
+        <form method="post" id="cadastro">
+
+          <input type="text" id="username" placeholder="Usuário" required>
+          <input type="password" id="password" placeholder="Senha"  required>
+
+          <button type="submit">Entrar</button>
+          <p class="Conta">Já tem uma conta? <a href="index.html">entrar</a></p>
+        </form>
+
+
+      
+
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
+
