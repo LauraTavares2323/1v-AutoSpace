@@ -52,13 +52,13 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background: blue;
+  background: #2E334D;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-.form-container button:hover {
+button:hover {
   background: darkblue;
 }
 
