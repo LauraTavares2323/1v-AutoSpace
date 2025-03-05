@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,24 @@
     <link rel="stylesheet" href="carroCadastro.css">
     <script src="script.js" defer></script>
 </head>
-    
+
 <body>
     <div class="opacidade"></div>
     <div class="formulario">
         <h2>Seu carro</h2>
         <h5>Qual é a:</h5>
-        <form  method="post" id="cadastro">
-            <input type="text" id="brand"  placeholder="Marca" required>
-            <input type="email" id="color" placeholder="Cor" required>
-            <input type="password" id="placa" placeholder="Placa" required>
+        <form method="post" id="cadastro">
+            <input type="text" id="brand" placeholder="Marca" required>
+            <input type="text" id="color" placeholder="Cor" required>
+            <input type="text" id="placa" placeholder="Placa" required>
             <button type="submit">Cadastrar seu carro</button>
+            <div id="apagarEditar">
+                <button type="submit">Editar</button>
+                <button type="submit">Apagar</button>
+            </div>
         </form>
 
     </div>
 </body>
+
 </html>
