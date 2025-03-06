@@ -62,7 +62,7 @@ app.post('/cadastro', (req, res) => {
 // MNão consegui nem cadastrar o usuario ainda :(
 
 // rota para apagar o seu carro
-// QUASE CERTEZA QUE FUNCIONA
+// FUNCIONANDO
 app.delete('/apagar/:id', (req, res) => {
     const { id } = req.params;
     const query = 'DELETE FROM car WHERE id = ?';
@@ -79,7 +79,7 @@ app.delete('/apagar/:id', (req, res) => {
   });
 
 // rota para editar o seu carro
-// QUASE CERTEZA QUE FUNCIONA
+// TA FUNCIONAANDOO
 app.put('/editar/:id', (req, res) => {
     const { id } = req.params;
     const { brand, color, placa } = req.body;
@@ -88,16 +88,25 @@ app.put('/editar/:id', (req, res) => {
       if (err) {
         return res.status(500).json({ 
             success: false, 
-            message: 'Erro ao atualizar produto.' });
+            message: 'Erro ao atualizar carro.' });
       }
       res.json({ 
         success: true, 
-        message: 'Produto atualizado com sucesso!' });
+        message: 'Carro atualizado com sucesso!' });
     });
   });
 
 // rota para listar os carros
-// NÃO FIZ AINDA
+// ACHO QUE FUNCIONA
+app.get('/car', (req, res) => {
+  const query = 'SELECT * FROM car';
+  connection.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).json({ success: false, message: 'Erro ao buscar carros.' });
+    }
+    res.json({ success: true, car: results });
+  });
+});
 
 // para ver qual porta roda
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));

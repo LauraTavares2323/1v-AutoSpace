@@ -46,18 +46,20 @@ const form1 = document.getElementById('cadastro').addEventListener('submit', asy
       alert("Não foi possível realizar seu cadastro");
     }
   });
+
+
   
 // cadastro de carro
 // Nem o de pessoa deu certo (ainda)
 
 // editar o carro
-// QUASE CERTEZA QUE FUNCIONA
-async function editProduct(id) {
+// TA FUNCIONNADO
+async function editCar(id) {
     const brand = prompt("Nova marca do seu carro");
     const color = prompt("Nova cor do seu carro");
     const placa = prompt("Novo placa do seu carro");
   
-    await fetch(`http://localhost:3030/editar/${id}`, {
+    await fetch(`http://localhost:2000/editar/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({brand, color, placa })
@@ -65,8 +67,8 @@ async function editProduct(id) {
     loadProducts();
 
 // apagar o carro
-// QUASE CERTEZA QUE FUNCIONA
-async function deleteProduct(id) {
+// FUNCIONANDO
+async function deleteCar(id) {
     await fetch(`http://localhost:2000/apagar/${id}`, {
       method: 'DELETE'
     });
@@ -74,4 +76,23 @@ async function deleteProduct(id) {
   }}
   
 // listar os carros
-// NÃO FIZ AINDA
+// ACHO QUE FUNCIONA
+
+async function loadProducts() {
+  const response = await fetch('http://localhost:2000/car');
+  const data = await response.json();
+  const tbody = document.querySelector('tbody');
+  tbody.innerHTML = ''; 
+
+  data.car.forEach(car => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${car.id}</td>
+      <td>${car.brand}</td>
+      <td>${car.color}</td>
+      <td>R$ ${car.placa}</td>
+     
+    `;
+    tbody.appendChild(row);
+  });
+}

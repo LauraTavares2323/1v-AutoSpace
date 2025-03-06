@@ -10,42 +10,24 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <section>
-        <h2>Vagas disponíveis</h2>
-    <div class="card" style="width: 18rem;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Vaga 01<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 02<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 03<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 04<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 05<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 06<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 07<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 08<button type="button" class="btn btn-primary">Reservar</button></li>
-          <li class="list-group-item">Vaga 09<button type="button" class="btn btn-primary">Reservar</button></li>
-  
-        </ul>
+  <div class="opacidade"></div>
+  <section class="product-list">
+    <h2>Carros cadastrados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Marca</th>
+          <th>cor</th>
+          <th>Placa</th>
+        </tr>
+      </thead>
+      <tbody id="product-table-body">
+      </tbody>
+    </table>
+  </section>
 
-      </div>
-    </section>
 
-    <section>
-        <h2>Carros cadastrados</h2>
-        <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Vaga 01<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 02<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 03<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 04<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 05<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 06<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 07<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 08<button type="button" class="btn btn-primary">Reservar</button></li>
-              <li class="list-group-item">Vaga 09<button type="button" class="btn btn-primary">Reservar</button></li>
-      
-            </ul>
-    
-          </div>
         </section>
 
       <section>
@@ -55,9 +37,9 @@
             <div class="card-body">
               <h5 class="card-title">Seu carro </h5>
               <p class="card-text">Cadastre seu carro com as informações solicitadas e reserve sua vaga no AutoSpace estacionamento.</p>
-              <a href="#" class="btn btn-primary">Cadastre seu carro</a>
-              <a href="#" class="btn btn-primary">Edite seu carro</a>
-              <a href="#" class="btn btn-primary">Exclua seu carro</a>
+              <a href="carroCadastro.html" class="btn btn-primary">Cadastre seu carro</a>
+              <a href="#" class="btn btn-primary" onclick="editCar(id)">Edite seu carro</a>
+              <a href="#" class="btn btn-primary" onclick="deleteCar(id)">Exclua seu carro</a>
             </div>
           </div>
       </section>
