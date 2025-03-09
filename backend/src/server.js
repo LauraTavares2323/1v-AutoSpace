@@ -1,3 +1,4 @@
+
 // padrão
 const express = require('express');
 const cors = require('cors');
@@ -7,7 +8,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = 2000;
+const port = 3000;
+// rota para listar os carros
+// TA FUNCIONANDO
+app.get('/car', (req, res) => {
+  const query = 'SELECT id, brand, color, placa FROM car';
+  connection.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).json({ success: false, message: 'Erro ao buscar carros.' });
+    }
+    res.json({ success: true, car: results });
+  });
+});
+
+
 
 // rota de login do usuário
 // TA FUNCIONANDO
@@ -40,26 +54,24 @@ app.post('/login', (req, res) => {
 
 
 // rota de cadastro de usuároio
-// NÃO FUNCIONA (AINDA)
+// TA FUNCIONANDO
 app.post('/cadastro', (req, res) => {
-    const { username, password } = req.body;
-    const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
-    connection.query(query, [username, password], (err, result) => {
-      if (err) {
-        return res.status(500).json({
-          success: false,
-          message: 'Não foi possível realizar seu cadastro'
-        });
-      }
-      res.json({
-        success: true,  
-        message: 'Você foi cadastrado'
-      });
-    });
+  const { username, password} = req.body;
+  const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
+  connection.query(query, [username, password], (err, result) => {
+    if (err) {
+      return res.status(500).json({ 
+        success: false, 
+        message: 'Erro ao cadastrar.' });
+    }
+    res.json({ 
+      success: true, 
+      message: 'Você foi cadastrado',
+       id: result.insertId });
   });
-  
-// rota para cadastrar o seu carro
-// MNão consegui nem cadastrar o usuario ainda :(
+});
+
+
 
 // rota para apagar o seu carro
 // FUNCIONANDO
@@ -79,7 +91,7 @@ app.delete('/apagar/:id', (req, res) => {
   });
 
 // rota para editar o seu carro
-// TA FUNCIONAANDOO
+// TA FUNCIONAANDOO ()
 app.put('/editar/:id', (req, res) => {
     const { id } = req.params;
     const { brand, color, placa } = req.body;
@@ -96,17 +108,7 @@ app.put('/editar/:id', (req, res) => {
     });
   });
 
-// rota para listar os carros
-// ACHO QUE FUNCIONA
-app.get('/car', (req, res) => {
-  const query = 'SELECT * FROM car';
-  connection.query(query, (err, results) => {
-    if (err) {
-      return res.status(500).json({ success: false, message: 'Erro ao buscar carros.' });
-    }
-    res.json({ success: true, car: results });
-  });
-});
+
 
 // para ver qual porta roda
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
